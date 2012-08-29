@@ -12,9 +12,10 @@ class EmailsController < ApplicationController
 	end
 	
 	def create
+
 	    @email = Email.new(params[:email])
-	    
 	    if @email.save
+	    	Notifier.send_email(@email).deliver
 	        redirect_to emails_path, :notice => "Your email was saved"
 	    else
 	        render "new"
