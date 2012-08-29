@@ -1,0 +1,31 @@
+<h1>Send an Email</h1>
+
+<%= form_for @email do |form| %>
+    <% if @email.errors.any? %>
+        <h2>Errors:</h2>
+        <ul>
+            <% @email.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <p>
+        <%= form.label :from %><br />
+        <%= form.text_field :from %>
+    </p>
+    <p>
+        <%= form.label :to %><br />
+        <%= form.text_field :to %>
+    </p>
+    <p>
+        <%= form.label :subject %><br />
+        <%= form.text_field :subject %>
+    </p>
+    <p>
+        <%= form.label :content %><br />
+        <%= form.text_area :content %>
+    </p>
+    <p>
+        <%= form.submit "Send Email" %>
+    </p>
+<% end %>

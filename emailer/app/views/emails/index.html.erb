@@ -1,0 +1,15 @@
+<h1>Emails List</h1>
+<table>
+	<tr>
+		<th>To</th>
+		<th>Subject</th>
+	</tr>
+	<% @emails.each do |email|  %>
+	<tr>
+    	<td><%= email.to %></td>
+    	<td><%= link_to email.subject, email %></td>
+	</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "Send New Email", new_email_path %></p>
